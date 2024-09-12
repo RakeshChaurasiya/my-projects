@@ -1,0 +1,37 @@
+SQL> SELECT c.Customer_ID, c.Customer_Name, cpo.Order_ID, o.Order_Date FROM
+  2  Customer c LEFT JOIN Customer_Product_Order cpo ON c.Customer_ID = cpo.Customer_ID
+  3  LEFT JOIN "ORDER" o ON o.Order_ID = cpo.Order_ID
+  4  ORDER BY Order_ID;
+
+CUSTOMER_ID CUSTOMER_NAME                    ORDER_ID ORDER_DAT                                                                                       
+----------- ------------------------------ ---------- ---------                                                                                       
+          2 Emily                                   1 12-FEB-23                                                                                       
+          1 Jack                                    1 12-FEB-23                                                                                       
+          4 Sarah                                   2 23-MAY-23                                                                                       
+          2 Emily                                   2 23-MAY-23                                                                                       
+          7 David                                   3 05-AUG-23                                                                                       
+          5 Michael                                 3 05-AUG-23                                                                                       
+          4 Sarah                                   4 04-MAY-23                                                                                       
+          1 Jack                                    4 04-MAY-23                                                                                       
+          7 David                                   5 07-APR-23                                                                                       
+          4 Sarah                                   5 07-APR-23                                                                                       
+          2 Emily                                   6 02-JUN-23                                                                                       
+          1 Jack                                    6 02-JUN-23                                                                                       
+          7 David                                   7 14-MAY-23                                                                                       
+          1 Jack                                    7 14-MAY-23                                                                                       
+          7 David                                   8 25-MAR-23                                                                                       
+          2 Emily                                   8 25-MAR-23                                                                                       
+          5 Michael                                 9 10-AUG-23                                                                                       
+          5 Michael                                 9 10-AUG-23                                                                                       
+          5 Michael                                10 22-MAY-23                                                                                       
+          3 John                                                                                                                                      
+         12 Megan                                                                                                                                     
+         10 Lisa                                                                                                                                      
+         11 Chris                                                                                                                                     
+          6 Amanda                                                                                                                                    
+          8 Jessica                                                                                                                                   
+          9 Brian                                                                                                                                     
+
+26 rows selected.
+
+SQL> SPOOL OFF

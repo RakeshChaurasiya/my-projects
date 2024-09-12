@@ -1,0 +1,15 @@
+SQL> SELECT * FROM
+  2  (SELECT Product_ID, Product_Name, SUM(Order_Quantity) AS Times_Ordered FROM
+  3  "ORDER" NATURAL JOIN Product_Order
+  4  NATURAL JOIN Product
+  5  GROUP BY Product_ID, Product_Name
+  6  ORDER BY SUM(Order_Quantity) DESC)
+  7  WHERE ROWNUM <= 3;
+
+PRODUCT_ID PRODUCT_NAME                   TIMES_ORDERED                                                                                               
+---------- ------------------------------ -------------                                                                                               
+         1 Samsung S3                                15                                                                                               
+        10 Toshiba Hard Drive                        14                                                                                               
+         3 Sony Camera                               13                                                                                               
+
+SQL> SPOOL OFF

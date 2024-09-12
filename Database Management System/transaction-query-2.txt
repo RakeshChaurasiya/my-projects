@@ -1,0 +1,46 @@
+SQL> CREATE TABLE Order_Total AS
+  2  (SELECT Order_ID,
+  3  SUM(Product_Price * Order_Quantity * (1 - Discount)) AS Total_Amount FROM
+  4  "ORDER" NATURAL JOIN Customer_Product_Order
+  5  NATURAL JOIN Product_Order
+  6  NATURAL JOIN Customer
+  7  NATURAL JOIN Customer_Category
+  8  NATURAL JOIN Product
+  9  GROUP BY Order_ID);
+
+Table created.
+
+SQL> SELECT * FROM Order_Total ORDER BY Total_Amount DESC;
+
+  ORDER_ID TOTAL_AMOUNT                                                                                                                               
+---------- ------------                                                                                                                               
+         2         2252                                                                                                                               
+         8       1858.5                                                                                                                               
+         7       1358.5                                                                                                                               
+         5         1330                                                                                                                               
+         1         1170                                                                                                                               
+         6         1130                                                                                                                               
+         4          855                                                                                                                               
+         3        724.5                                                                                                                               
+        10          500                                                                                                                               
+         9          450                                                                                                                               
+
+10 rows selected.
+
+SQL> SELECT * FROM Order_Total
+  2  WHERE Total_Amount >= (SELECT AVG(Total_Amount) FROM Order_Total)
+  3  ORDER BY Total_Amount DESC;
+
+  ORDER_ID TOTAL_AMOUNT                                                                                                                               
+---------- ------------                                                                                                                               
+         2         2252                                                                                                                               
+         8       1858.5                                                                                                                               
+         7       1358.5                                                                                                                               
+         5         1330                                                                                                                               
+         1         1170                                                                                                                               
+
+SQL> DROP TABLE Order_Total;
+
+Table dropped.
+
+SQL> SPOOL OFF

@@ -1,0 +1,12 @@
+SQL> SELECT Vendor_ID, Vendor_Name, COUNT(Product_ID) AS Num_of_Products
+  2  FROM Vendor NATURAL JOIN Product
+  3  GROUP BY Vendor_ID, Vendor_Name HAVING COUNT(Product_ID) > 3;
+
+ VENDOR_ID VENDOR_NAME                    NUM_OF_PRODUCTS                                                                                             
+---------- ------------------------------ ---------------                                                                                             
+         1 TechGlobe Solutions                          4                                                                                             
+         7 PowerTech                                    4                                                                                             
+         3 CircuitMasters                               4                                                                                             
+         4 SparkTech                                    4                                                                                             
+
+SQL> SPOOL OFF

@@ -1,0 +1,11 @@
+SQL> SELECT * FROM Customer WHERE Customer_Category = 'S';
+
+CUSTOMER_ID CUSTOMER_NAME                  CUSTOMER_ADDRESS               CUSTOMER_NUMBER                CUSTOMER_CATEGORY                            
+----------- ------------------------------ ------------------------------ ------------------------------ --------------------                         
+          1 Jack                           123 Main St                    555-1234                       S                                            
+          4 Sarah                          101 Maple Dr                   555-3456                       S                                            
+          6 Amanda                         303 Elm Blvd                   555-2345                       S                                            
+          7 David                          404 Birch Ct                   555-6789                       S                                            
+          9 Brian                          606 Spruce St                  555-4567                       S                                            
+
+SQL> SPOOL OFF

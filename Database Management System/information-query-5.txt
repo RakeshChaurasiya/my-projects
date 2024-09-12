@@ -1,0 +1,11 @@
+SQL> SELECT * FROM
+  2  (SELECT Customer_ID, Customer_Name, Order_ID, Order_Date FROM
+  3  Customer NATURAL JOIN Customer_Product_Order NATURAL JOIN "ORDER"
+  4  ORDER BY Order_Date DESC)
+  5  WHERE ROWNUM = 1;
+
+CUSTOMER_ID CUSTOMER_NAME                    ORDER_ID ORDER_DAT                                                                                       
+----------- ------------------------------ ---------- ---------                                                                                       
+          5 Michael                                 9 10-AUG-23                                                                                       
+
+SQL> SPOOL OFF

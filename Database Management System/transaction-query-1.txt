@@ -1,0 +1,21 @@
+SQL> SELECT TO_CHAR(Order_Date, 'YYYY-MM') AS Order_Month,
+  2  SUM(Product_Price * Order_Quantity * (1 - Discount)) AS Monthly_Total FROM
+  3  "ORDER" NATURAL JOIN Customer_Product_Order
+  4  NATURAL JOIN Product_Order
+  5  NATURAL JOIN Customer
+  6  NATURAL JOIN Customer_Category
+  7  NATURAL JOIN Product
+  8  GROUP BY TO_CHAR(Order_Date, 'YYYY-MM');
+
+ORDER_M MONTHLY_TOTAL                                                                                                                                 
+------- -------------                                                                                                                                 
+2023-05        4965.5                                                                                                                                 
+2023-02          1170                                                                                                                                 
+2023-04          1330                                                                                                                                 
+2023-03        1858.5                                                                                                                                 
+2023-06          1130                                                                                                                                 
+2023-08        1174.5                                                                                                                                 
+
+6 rows selected.
+
+SQL> SPOOL OFF

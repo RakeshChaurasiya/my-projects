@@ -1,0 +1,15 @@
+SQL> SELECT * FROM Product
+  2  WHERE Product_Name LIKE '_a%' AND Product_Stock > 50;
+
+PRODUCT_ID PRODUCT_NAME                   PRODUCT_DESCRIPTION            PRODUCT_CATEGORY               PRODUCT_PRICE PRODUCT_STOCK  VENDOR_ID        
+---------- ------------------------------ ------------------------------ ------------------------------ ------------- ------------- ----------        
+         1 Samsung S3                     Smartphone                     Productivity                             120           100          1        
+         2 Panasonic TV                   UHD Television                 Entertainment                            200            75          1        
+         7 Canon Camera                   Cinematic Camera               Cameras                                  170            65          3        
+         9 Casio Calculator               Scientific Calculator          Productivity                              80            95          4        
+        15 Razer Mouse                    High Quality Gaming Mouse      Gaming                                    90            80          7        
+        22 Macbook Air                    Laptop                         Productivity                             220            75         10        
+
+6 rows selected.
+
+SQL> SPOOL OFF

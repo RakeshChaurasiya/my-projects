@@ -1,0 +1,18 @@
+SQL> SELECT * FROM
+  2  (SELECT Customer_ID, Customer_Name, Order_ID, TO_CHAR(Order_Date, 'YYYY-MON') AS Order_Month,
+  3  SUM(Product_Price * Order_Quantity * (1 - Discount)) AS Total_Amount FROM
+  4  Customer NATURAL JOIN Customer_Category
+  5  NATURAL JOIN Customer_Product_Order
+  6  NATURAL JOIN Product_Order
+  7  NATURAL JOIN "ORDER"
+  8  NATURAL JOIN Product
+  9  WHERE EXTRACT(MONTH FROM Order_Date) = 8
+ 10  GROUP BY Order_ID, TO_CHAR(Order_Date, 'YYYY-MON'), Customer_ID, Customer_Name
+ 11  ORDER BY SUM(Product_Price * Order_Quantity * (1 - Discount)) DESC)
+ 12  WHERE ROWNUM = 1;
+
+CUSTOMER_ID CUSTOMER_NAME                    ORDER_ID ORDER_MONTH       TOTAL_AMOUNT                                                                  
+----------- ------------------------------ ---------- ----------------- ------------                                                                  
+          7 David                                   3 2023-AUG                 484.5                                                                  
+
+SQL> SPOOL OFF

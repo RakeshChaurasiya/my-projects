@@ -1,0 +1,18 @@
+SQL> SELECT Order_ID, Product_ID, Order_Date FROM
+  2  "ORDER" NATURAL JOIN Product_Order
+  3  WHERE Order_Date BETWEEN '01-MAY-23' AND '28-MAY-23'
+  4  ORDER BY Order_ID;
+
+  ORDER_ID PRODUCT_ID ORDER_DAT                                                                                                                       
+---------- ---------- ---------                                                                                                                       
+         2          1 23-MAY-23                                                                                                                       
+         2          7 23-MAY-23                                                                                                                       
+         4          2 04-MAY-23                                                                                                                       
+         4          8 04-MAY-23                                                                                                                       
+         7          9 14-MAY-23                                                                                                                       
+         7          3 14-MAY-23                                                                                                                       
+        10          5 22-MAY-23                                                                                                                       
+
+7 rows selected.
+
+SQL> SPOOL OFF
